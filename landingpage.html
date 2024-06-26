@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Ordering Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f3f3;
+      color: #333;
+    }
+
+    header {
+      background-color: #d5f0b0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      padding: 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    nav li {
+      margin: 0 15px;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+      transition: background-color 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: #333;
+      color: #ffffff;
+    }
+
+    .hero {
+      background-image: url('https://source.unsplash.com/1600x900/?food');
+      background-size: cover;
+      background-position: center;
+      height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      color: #131111;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background-color: #f39c12;
+      color: #ffffff;
+      padding: 15px 30px;
+      font-size: 1.5em;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #d98200;
+    }
+
+    .popular {
+      padding: 50px 20px;
+      text-align: center;
+      background-color: #f8f7f5;
+    }
+
+    .popular h2 {
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+
+    .dishes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .dish {
+      background-color: #f4f2ef;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      flex: 1 1 300px;
+      max-width: 300px;
+    }
+
+    .dish img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .dish h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .dish p {
+      margin-bottom: 10px;
+    }
+
+    .dish span {
+      font-size: 1.25em;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #ffffff;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    .testimonials {
+      padding: 50px 20px;
+      background-color: #f8f9fa;
+      text-align: center;
+    }
+
+    .testimonials h2 {
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+
+    .testimonial {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      display: inline-block;
+      max-width: 300px;
+    }
+
+    .testimonial p {
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .testimonial h3 {
+      font-size: 1.25em;
+      color: #f39c12;
+    }
+
+    .subscribe {
+      padding: 50px 20px;
+      background-color: #ffffff;
+      text-align: center;
+    }
+
+    .subscribe h2 {
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+
+    .subscribe form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .subscribe input[type="email"] {
+      padding: 10px;
+      font-size: 1em;
+      border: 2px solid #333;
+      border-radius: 5px;
+      margin-right: 10px;
+      flex: 1 1 250px;
+    }
+
+    .subscribe button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #f39c12;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .subscribe button:hover {
+      background-color: #d98200;
+    }
+
+    footer {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+      margin-top: 50px;
+    }
+
+    footer .social {
+      margin-bottom: 20px;
+    }
+
+    footer .social a {
+      color: #333;
+      text-decoration: none;
+      font-size: 1.5em;
+      margin: 0 10px;
+      transition: color 0.2s ease;
+    }
+
+    footer .social a:hover {
+      color: #f39c12;
+    }
+
+    footer p {
+      font-size: 1em;
+      color: #777;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2em;
+      }
+
+      .btn {
+        font-size: 1.2em;
+        padding: 10px 20px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav li {
+        margin: 10px 0;
+      }
+
+      .dishes {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Delicious food delivered to your door</h1>
+      <a href="#" class="btn">Order now</a>
+    </section>
+
+    <section class="popular">
+      <h2>Our most popular dishes</h2>
+      <div class="dishes">
+        <div class="dish">
+          <img src="https://wallpaperbat.com/img/183042-pizza-wallpaper-2560x1600.jpg" alt="Dish 1">
+          <h3>Pizza</h3>
+          <p>Experience the ultimate pizza with our hand-tossed crust,
+             topped with zesty tomato sauce and a generous layer of mozzarella cheese.
+              Finished with your choice of fresh toppings for a perfect bite every time.</p>
+        
+          <span>$10</span>
+        </div>
+
+        <div class="dish">
+          <img src="https://img.freepik.com/premium-photo/colorful-donuts-trending-hd-wallpaper-8k4k2k_915071-41585.jpg" alt="Dish 2">
+          <h3>Donuts</h3>
+          <p>Delight in our freshly baked donuts, perfectly fluffy and glazed to perfection. 
+            Each bite offers a burst of sweetness with a hint of vanilla. Ideal for a delicious treat anytime.</p>
+    
+          <span>$12</span>
+        </div>
+
+        <div class="dish">
+          <img src="https://e0.pxfuel.com/wallpapers/85/485/desktop-wallpaper-pasta-17-1920-x-1080-italian-food.jpg" alt="Dish 3">
+          <h3>Pasta</h3>
+          <p>Indulge in our creamy Alfredo pasta, made with rich Parmesan cheese and a touch of garlic. 
+            Topped with grilled chicken and fresh herbs for an irresistible flavor. Perfect for a satisfying and comforting meal.</p>
+        
+          <span>$15</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2>What our customers say</h2>
+      <div class="testimonial">
+        <p>"The food is always delicious and the delivery is super quick!"</p>
+        <h3>John Doe</h3>
+      </div>
+      <div class="testimonial">
+        <p>"Best food ordering service I've ever used. Highly recommend!"</p>
+        <h3>Jane Smith</h3>
+      </div>
+      <div class="testimonial">
+        <p>"Amazing variety and quality. I order every week!"</p>
+        <h3>Emily Brown
